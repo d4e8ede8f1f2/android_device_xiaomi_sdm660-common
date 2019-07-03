@@ -1,9 +1,4 @@
 #!/system/bin/sh
-#
-# Copyright (C) 2019 The LineageOS Project
-#
-# SPDX-License-Identifier: Apache-2.0
-#
 
 DEST_PATH="/data/vendor/goodix"
 FILES_MOVED="/data/vendor/goodix/moved"

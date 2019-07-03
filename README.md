@@ -1,16 +1,23 @@
-This repository contains device configuration for Xiaomi SDM660 devices
+# PixelExperience
+# Device configuration for Xiaomi Mi A2
+
+## Device specifications
 
 Basic   | Spec Sheet
--------:|:----------
-CPU     | Quad-core 1.84 GHz Qualcomm Kryo 260 LP
-CPU     | Quad-core 2.20 GHz Qualcomm Kryo 260 HP
-Chipset | Qualcomm Snapdragon 660, SDM660
+-------:|:-------------------------
+CPU     | 8x Qualcomm® Kryo™ 260 up to 2.2GHz
+CHIPSET | Qualcomm SDM660 Snapdragon 660
 GPU     | Adreno 512
-ROM     | 32/64/128GB
-RAM     | 3/4/6GB
-Android | 8.1.0
+Memory  | 3GB / 4GB / 6GB RAM (LPDDR4X)
+Shipped Android Version | 8.1.0
+Storage | 32/64/128GB eMMC 5.1 flash storage
+Battery | Non-removable Li-Po 3010 mAh
+Dimensions | 158.7 x 75.4 x 7.3 mm
+Display | 1080x2160 pixels, 5.99
+Rear Camera  | 12MP+20MP, AI Dual Camera
+Front Camera | 20 MP
 
-Note:
-Depends on: android_packages_resources_devicesettings from LineageOS
+![Device Picture](https://static-eu.insales.ru/images/products/1/6809/170998425/20180723211747.jpg)
 
-Currently Supported Devices: wayne (MI 6X), jasmine_sprout (MI A2) and clover (MI PAD 4 /4 Plus)
+### Kernel Source
+Check here: https://github.com/d4e8ede8f1f2/android_kernel_xiaomi_jasmine_sprout/tree/android-9.0

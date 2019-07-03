@@ -1,32 +1,4 @@
 #!/vendor/bin/sh
-# Copyright (c) 2012-2018, The Linux Foundation. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
-#       contributors may be used to endorse or promote products derived
-#      from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-#
 
 # Set platform variables
 soc_hwplatform=`cat /sys/devices/soc0/hw_platform 2> /dev/null`
@@ -34,11 +6,8 @@ soc_machine=`cat /sys/devices/soc0/machine 2> /dev/null`
 soc_machine=${soc_machine:0:2}
 soc_id=`cat /sys/devices/soc0/soc_id 2> /dev/null`
 
-#
 # Check ESOC for external modem
-#
 # Note: currently only a single MDM/SDX is supported
-#
 esoc_name=`cat /sys/bus/esoc/devices/esoc0/esoc_name 2> /dev/null`
 
 target=`getprop ro.board.platform`
@@ -47,9 +16,7 @@ if [ -f /sys/class/android_usb/f_mass_storage/lun/nofua ]; then
 	echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 fi
 
-#
 # Override USB default composition
-#
 # If USB persist config not set, set default configuration
 if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	"$(getprop init.svc.vendor.usb-gadget-hal-1-0)" != "running" ]; then
@@ -188,9 +155,7 @@ if [ -d /config/usb_gadget ]; then
 	setprop sys.usb.configfs 1
 fi
 
-#
 # Initialize RNDIS Diag option. If unset, set it to 'none'.
-#
 diag_extra=`getprop persist.vendor.usb.config.extra`
 if [ "$diag_extra" == "" ]; then
 	setprop persist.vendor.usb.config.extra none
@@ -204,9 +169,7 @@ case "$soc_id" in
 	;;
 esac
 
-#
 # Initialize UVC conifguration.
-#
 if [ -d /config/usb_gadget/g1/functions/uvc.0 ]; then
 	cd /config/usb_gadget/g1/functions/uvc.0
 

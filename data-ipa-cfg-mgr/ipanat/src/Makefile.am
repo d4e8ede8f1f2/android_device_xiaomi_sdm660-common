@@ -1,3 +1,4 @@
+
 AM_CFLAGS = -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs
 if KERNELMODULES
 AM_CFLAGS += -I./../inc $(KERNEL_DIR)/include

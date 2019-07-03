@@ -1,6 +1,8 @@
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
+
 LOCAL_ARM_MODE := arm
 LOCAL_SRC_FILES := src/CtUpdateAmbassador.cpp \
                 src/HAL.cpp \
@@ -28,4 +30,5 @@ LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/inc
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_PATH_32 := $(TARGET_OUT_VENDOR)/lib
 LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64
+
 include $(BUILD_SHARED_LIBRARY)

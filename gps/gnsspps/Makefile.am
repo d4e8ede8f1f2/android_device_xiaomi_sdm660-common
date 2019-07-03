@@ -1,3 +1,4 @@
+
 AM_CFLAGS = \
      $(LOCPLA_CFLAGS) \
      $(GPSUTILS_CFLAGS) \
@@ -31,7 +32,3 @@ library_includedir = $(pkgincludedir)
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gnsspps.pc
 EXTRA_DIST = $(pkgconfig_DATA)
-
-
-
-

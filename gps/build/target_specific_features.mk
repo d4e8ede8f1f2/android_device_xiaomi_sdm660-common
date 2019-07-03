@@ -1,3 +1,4 @@
+
 GNSS_CFLAGS := \
     -Werror \
     -Wno-error=unused-parameter \

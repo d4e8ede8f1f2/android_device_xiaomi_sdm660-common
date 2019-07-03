@@ -1,3 +1,4 @@
+
 package org.ifaa.android.manager;
 
 public abstract class IFAAManagerV3 extends IFAAManagerV2 {

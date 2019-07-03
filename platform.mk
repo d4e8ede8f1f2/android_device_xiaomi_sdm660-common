@@ -1,25 +1,3 @@
-#
-# Copyright (C) 2018 The Xiaomi-SDM660 Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
 
 # Platform Path
 PLATFORM_PATH := device/xiaomi/sdm660-common
@@ -29,8 +7,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 $(call inherit-product-if-exists, build/target/product/embedded.mk)
-$(call inherit-product-if-exists, vendor/xiaomi/MiuiCamera/config.mk)
-$(call inherit-product-if-exists, vendor/google/GoogleCamera/config.mk)
 
 # Vendor files
 $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
@@ -43,11 +19,11 @@ $(call inherit-product, $(PLATFORM_PATH)/platform_prop.mk)
 
 # Alipay
 PRODUCT_PACKAGES += \
-  IFAAService \
-  org.ifaa.android.manager
+	IFAAService \
+	org.ifaa.android.manager
 
 PRODUCT_BOOT_JARS += \
-  org.ifaa.android.manager
+	org.ifaa.android.manager
 
 # Android_filesystem_config
 PRODUCT_PACKAGES += \
@@ -118,16 +94,16 @@ PRODUCT_PACKAGES += \
 	gralloc.sdm660 \
 	hwcomposer.sdm660 \
 	libdisplayconfig \
+	libgpu_tonemapper \
 	liboverlay \
 	libqdMetaData.system \
+	libsdm_core \
 	libtinyxml \
-	memtrack.sdm660 \
-	libgpu_tonemapper \
-	libsdm_core
+	memtrack.sdm660
 
 PRODUCT_PACKAGES += \
-	android.hardware.configstore@1.0-service \
-	android.hardware.broadcastradio@1.0-impl
+	android.hardware.broadcastradio@1.0-impl \
+	android.hardware.configstore@1.0-service
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -145,8 +121,8 @@ PRODUCT_COPY_FILES += \
 
 # Fingerprint feature
 PRODUCT_PACKAGES += \
-	fingerprintd \
-	android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm660
+	android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm660 \
+	fingerprintd
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
@@ -226,8 +202,8 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-	$(PLATFORM_PATH)/configs/keylayout/sdm660-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sdm660-snd-card_Button_Jack.kl \
 	$(PLATFORM_PATH)/configs/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+	$(PLATFORM_PATH)/configs/keylayout/sdm660-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sdm660-snd-card_Button_Jack.kl \
 	$(PLATFORM_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl \
 	$(PLATFORM_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
@@ -251,8 +227,8 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-	libc2dcolorconvert \
 	libaacwrapper \
+	libc2dcolorconvert \
 	libmm-omxcore \
 	libOmxAacEnc \
 	libOmxAmrEnc \
@@ -338,11 +314,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	init.msm.usb.configfs.rc \
+	init.performance.sdm660.rc \
 	init.qcom.rc \
 	init.qcom.usb.rc \
-	init.target.rc \
 	init.spectrum.rc \
-	init.performance.sdm660.rc \
+	init.target.rc \
 	ueventd.qcom.rc
 
 # RCS
@@ -361,13 +337,13 @@ PRODUCT_PACKAGES += \
 	android.hardware.radio@1.2 \
 	android.hardware.radio.config@1.0 \
 	android.hardware.secure_element@1.0 \
+	libprotobuf-cpp-full \
 	librmnetctl \
-	libxml2 \
-	libprotobuf-cpp-full
+	libxml2
 
 PRODUCT_PACKAGES += \
-	rild \
-	CarrierConfig
+	CarrierConfig \
+	rild
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -429,11 +405,11 @@ PRODUCT_COPY_FILES += \
 
 # VR
 PRODUCT_PACKAGES += \
-    vr.sdm660
+	vr.sdm660
 
 PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl \
-    android.hardware.vr@1.0-service
+	android.hardware.vr@1.0-impl \
+	android.hardware.vr@1.0-service
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -460,19 +436,15 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
-  WfdCommon
+	WfdCommon
 
 # arcore
 PRODUCT_PACKAGES += \
-  arcore
+	arcore
 
 # Lens
 PRODUCT_PACKAGES += \
-    Lens
+	Lens
 
 PRODUCT_PACKAGES += \
 	libnl
-
-# Wallpapers
-PRODUCT_PACKAGES += \
-    WallpapersBReel2018

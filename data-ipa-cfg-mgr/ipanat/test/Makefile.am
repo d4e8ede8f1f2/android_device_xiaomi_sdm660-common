@@ -1,3 +1,4 @@
+
 AM_CPPFLAGS = -I./../inc \
 	      -I$(top_srcdir)/ipanat/inc
 
@@ -39,4 +40,3 @@ ipanattest_LDADD =  $(requiredlibs)
 LOCAL_MODULE := libipanat
 LOCAL_PRELINK_MODULE := false
 include $(BUILD_SHARED_LIBRARY)
-

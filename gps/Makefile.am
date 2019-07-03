@@ -1,5 +1,3 @@
-# Makefile.am - Automake script for gps loc_api
-#
 
 ACLOCAL_AMFLAGS = -I m4
 

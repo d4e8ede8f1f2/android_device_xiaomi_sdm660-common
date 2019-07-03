@@ -1,3 +1,4 @@
+
 AM_CPPFLAGS = -I./../inc \
 	      -I$(top_srcdir)/ipanat/inc \
 	      ${LIBXML_CFLAGS}

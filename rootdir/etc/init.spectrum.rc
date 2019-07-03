@@ -1,7 +1,3 @@
-  # SPECTRUM KERNEL MANAGER
-  # Ramdisk file for profile based kernel management
-
-  # Profiles for Xiaomi Snapdragon 660 Devices by Max Weffers (rcstar6696)
 
 # Initialization
 on property:sys.boot_completed=1
