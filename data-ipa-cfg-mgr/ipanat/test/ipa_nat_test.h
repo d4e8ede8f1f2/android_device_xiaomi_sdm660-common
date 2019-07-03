@@ -1,9 +1,4 @@
 
-/*===========================================================================
-
-                     INCLUDE FILES FOR MODULE
-
-===========================================================================*/
 #include "stdint.h"  /* uint32_t */
 #include "stdio.h"
 #include <netinet/in.h> /* for proto definitions */

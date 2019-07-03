@@ -1,19 +1,4 @@
 
-/*=========================================================================*/
-/*!
-	@file
-	ipa_nat_test005.c
-
-	@brief
-	Verify the following scenario:
-	1. Add ipv4 table
-	2. Add ipv4 rule
-	3. Delete ipv4 rule
-	4. Add ipv4 rule
-	5. Delete ipv4 table
-*/
-/*=========================================================================*/
-
 #include "ipa_nat_test.h"
 #include "ipa_nat_drv.h"
 

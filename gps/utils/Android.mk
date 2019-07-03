@@ -1,50 +1,45 @@
 
 ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
-ifneq ($(BUILD_TINY_ANDROID),true)
-#Compile this library only for builds with the latest modem image
+ifneq ($(BUILD_TINY_ANDROID), true)
 
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-
-## Libs
 LOCAL_SHARED_LIBRARIES := \
-    libdl \
-    libutils \
-    libcutils \
-    liblog
+	libdl \
+	libcutils \
+	liblog \
+	libutils
 
 LOCAL_SRC_FILES += \
-    loc_log.cpp \
-    loc_cfg.cpp \
-    msg_q.c \
     linked_list.c \
-    loc_target.cpp \
     LocHeap.cpp \
-    LocTimer.cpp \
+    LocIpc.cpp \
     LocThread.cpp \
-    MsgTask.cpp \
+    LocTimer.cpp \
+    loc_cfg.cpp \
+	loc_log.cpp \
     loc_misc_utils.cpp \
     loc_nmea.cpp \
-    LocIpc.cpp
+    loc_target.cpp \
+    MsgTask.cpp \
+	msg_q.c
 
-# Flag -std=c++11 is not accepted by compiler when LOCAL_CLANG is set to true
 LOCAL_CFLAGS += \
-     -fno-short-enums \
-     -D_ANDROID_
+	 -fno-short-enums \
+	 -D_ANDROID_
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
-   LOCAL_CFLAGS += -DTARGET_BUILD_VARIANT_USER
+ LOCAL_CFLAGS += -DTARGET_BUILD_VARIANT_USER
 endif
 
 LOCAL_LDFLAGS += -Wl,--export-dynamic
 
-## Includes
 LOCAL_HEADER_LIBRARIES := \
-    libutils_headers \
+    liblocation_api_headers \
     libloc_pla_headers \
-    liblocation_api_headers
+	libutils_headers
 
 LOCAL_MODULE := libgps.utils
 LOCAL_VENDOR_MODULE := true
@@ -61,5 +56,5 @@ LOCAL_MODULE := libgps.utils_headers
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)
 include $(BUILD_HEADER_LIBRARY)
 
-endif # not BUILD_TINY_ANDROID
-endif # BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE
+endif
+endif

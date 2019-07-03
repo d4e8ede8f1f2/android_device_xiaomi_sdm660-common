@@ -1,17 +1,4 @@
 
-/*=========================================================================*/
-/*!
-	@file
-	ipa_nat_test004.cpp
-
-	@brief
-	Verify the following scenario:
-	1. Add ipv4 table
-	2. Query nat table handle
-	3. Delete ipv4 table
-*/
-/*===========================================================================*/
-
 #include "ipa_nat_test.h"
 #include "ipa_nat_drv.h"
 

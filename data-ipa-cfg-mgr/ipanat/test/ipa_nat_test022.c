@@ -1,20 +1,4 @@
 
-/*=========================================================================*/
-/*!
-	@file
-	ipa_nat_test022.cpp
-
-	@brief
-	Verify the following scenario:
-	1. Add ipv4 table
-	2. add same 3 ipv rules
-  3. delete Head and last entry
-  4. add 2 new same ip4 entries
-  5. Add head entry again
-	6. Delete ipv4 table
-*/
-/*=========================================================================*/
-
 #include "ipa_nat_test.h"
 #include "ipa_nat_drv.h"
 

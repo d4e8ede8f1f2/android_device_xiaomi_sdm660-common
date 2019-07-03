@@ -1,18 +1,4 @@
 
-/*=========================================================================*/
-/*!
-	@file
-	ipa_nat_test012.cpp
-
-	@brief
-	Verify the following scenario:
-	1. Add ipv4 table
-	2. add 3 distinct ipv4 rules
-	3. Delete third, second, first
-	4. Delete ipv4 table
-*/
-/*=========================================================================*/
-
 #include "ipa_nat_test.h"
 #include "ipa_nat_drv.h"
 

@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # ipacm   init.d script to start the data-ipa Software's ipacm daemon
 

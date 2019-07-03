@@ -2,23 +2,23 @@
 LOCAL_PATH := $(call my-dir)
 
 EXTRA_VENDOR_LIBRARIES_32 := \
-    libaudioclient \
-    libaudiomanager \
-    libbinder \
-    libbufferhubqueue \
-    libcamera_client \
-    libft2 \
-    libgui \
-    libharfbuzz_ng \
-    libheif \
-    libicui18n \
-    libicuuc \
-    libmedia \
-    libmediaextractor \
-    libmediametrics \
-    libminikin \
-    libpdx_default_transport \
-    libsonivox
+	libaudioclient \
+	libaudiomanager \
+	libbinder \
+	libbufferhubqueue \
+	libcamera_client \
+	libft2 \
+	libgui \
+	libharfbuzz_ng \
+	libheif \
+	libicui18n \
+	libicuuc \
+	libmedia \
+	libmediaextractor \
+	libmediametrics \
+	libminikin \
+	libpdx_default_transport \
+	libsonivox
 
 define define-vndk-lib
 include $$(CLEAR_VARS)
@@ -35,10 +35,10 @@ include $$(BUILD_PREBUILT)
 endef
 
 $(foreach lib,$(EXTRA_VENDOR_LIBRARIES_32),\
-    $(eval $(call define-vndk-lib,$(lib),32,$(TARGET_2ND_ARCH_VAR_PREFIX))))
+	$(eval $(call define-vndk-lib,$(lib),32,$(TARGET_2ND_ARCH_VAR_PREFIX))))
 
 $(foreach lib,$(EXTRA_VENDOR_LIBRARIES_64),\
-    $(eval $(call define-vndk-lib,$(lib),first,)))
+	$(eval $(call define-vndk-lib,$(lib),first,)))
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := vndk-ext

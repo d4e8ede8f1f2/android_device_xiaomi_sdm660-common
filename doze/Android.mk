@@ -1,5 +1,5 @@
 
-LOCAL_PATH:= $(call my-dir)
+LOCAL_PATH := $(call my-dir)
 ifeq ($(BOARD_VENDOR_PLATFORM), xiaomi-sdm660)
 include $(CLEAR_VARS)
 
@@ -21,8 +21,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-support-v7-recyclerview \
     android-support-v7-preference \
     android-support-v7-appcompat \
-    android-support-v14-preference \
-
+    android-support-v14-preference
 
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \

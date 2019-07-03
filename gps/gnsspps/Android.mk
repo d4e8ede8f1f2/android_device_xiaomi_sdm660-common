@@ -10,22 +10,23 @@ LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SHARED_LIBRARIES := \
-    libutils \
-    libcutils \
-    libgps.utils \
-    liblog
+	libutils \
+	libcutils \
+	libgps.utils \
+	liblog
 
 LOCAL_SRC_FILES += \
    gnsspps.c
 
 LOCAL_CFLAGS += \
-    -fno-short-enums \
-    -D_ANDROID_
+	-D_ANDROID_ \
+	-fno-short-enums
 
 ## Includes
 LOCAL_HEADER_LIBRARIES := \
-    libgps.utils_headers \
-    libloc_pla_headers
+	libgps.utils_headers \
+	libloc_pla_headers
+
 LOCAL_CFLAGS += $(GNSS_CFLAGS)
 include $(BUILD_SHARED_LIBRARY)
 
