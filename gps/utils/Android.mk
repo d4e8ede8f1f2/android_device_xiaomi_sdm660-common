@@ -13,22 +13,22 @@ LOCAL_SHARED_LIBRARIES := \
 	libutils
 
 LOCAL_SRC_FILES += \
-    linked_list.c \
-    LocHeap.cpp \
-    LocIpc.cpp \
-    LocThread.cpp \
-    LocTimer.cpp \
-    loc_cfg.cpp \
+	linked_list.c \
+	LocHeap.cpp \
+	LocIpc.cpp \
+	LocThread.cpp \
+	LocTimer.cpp \
+	loc_cfg.cpp \
 	loc_log.cpp \
-    loc_misc_utils.cpp \
-    loc_nmea.cpp \
-    loc_target.cpp \
-    MsgTask.cpp \
+	loc_misc_utils.cpp \
+	loc_nmea.cpp \
+	loc_target.cpp \
+	MsgTask.cpp \
 	msg_q.c
 
 LOCAL_CFLAGS += \
-	 -fno-short-enums \
-	 -D_ANDROID_
+	-D_ANDROID_ \
+	-fno-short-enums
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
  LOCAL_CFLAGS += -DTARGET_BUILD_VARIANT_USER
@@ -37,8 +37,8 @@ endif
 LOCAL_LDFLAGS += -Wl,--export-dynamic
 
 LOCAL_HEADER_LIBRARIES := \
-    liblocation_api_headers \
-    libloc_pla_headers \
+	liblocation_api_headers \
+	libloc_pla_headers \
 	libutils_headers
 
 LOCAL_MODULE := libgps.utils

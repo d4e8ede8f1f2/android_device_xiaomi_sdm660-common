@@ -8,8 +8,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../ipanat/inc
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/ \
+	$(LOCAL_PATH)/../../ipanat/inc
 
 LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 

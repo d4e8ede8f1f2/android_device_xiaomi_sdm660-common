@@ -1,13 +1,16 @@
 
-BOARD_PLATFORM_LIST := msm8909
-BOARD_PLATFORM_LIST += msm8916
-BOARD_PLATFORM_LIST += msm8917
-BOARD_IPAv3_LIST := msm8998
-BOARD_IPAv3_LIST += msmnile
-BOARD_IPAv3_LIST += sdm710
-BOARD_IPAv3_LIST += sdm845
-BOARD_IPAv3_LIST += $(MSMSTEPPE)
-BOARD_IPAv3_LIST += $(TRINKET)
+BOARD_PLATFORM_LIST := \
+	msm8909 \
+	msm8916 \
+	msm8917
+
+BOARD_IPAv3_LIST := \
+	msm8998 \
+	msmnile \
+	sdm710 \
+	sdm845 \
+	$(MSMSTEPPE) \
+	$(TRINKET)
 
 ifneq ($(call is-board-platform-in-list, $(BOARD_PLATFORM_LIST)), true)
 ifneq (, $(filter $(QCOM_BOARD_PLATFORMS), $(TARGET_BOARD_PLATFORM)))
@@ -17,14 +20,16 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../src
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../inc
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/../src \
+	$(LOCAL_PATH)/../inc
 
 LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
-LOCAL_CFLAGS := -DFEATURE_IPA_ANDROID
-LOCAL_CFLAGS += -DFEATURE_IPACM_RESTART
-LOCAL_CFLAGS += -DFEATURE_ETH_BRIDGE_LE
+LOCAL_CFLAGS := \
+	-DFEATURE_IPA_ANDROID \
+	-DFEATURE_IPACM_RESTART \
+	-DFEATURE_ETH_BRIDGE_LE
 
 LOCAL_CFLAGS += -DFEATURE_IPACM_HAL -Wall -Werror -Wno-error=macro-redefined
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
@@ -112,6 +117,6 @@ LOCAL_SRC_FILES := $(LOCAL_MODULE)
 LOCAL_MODULE_OWNER := ipacm
 include $(BUILD_PREBUILT)
 
-endif # $(TARGET_ARCH)
+endif
 endif
 endif

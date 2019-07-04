@@ -33,7 +33,7 @@ endif
 
 LOCAL_HEADER_LIBRARIES := \
 	libgps.utils_headers \
-    liblocation_api_headers \
+	liblocation_api_headers \
 	libloc_core_headers \
 	libloc_pla_headers
 

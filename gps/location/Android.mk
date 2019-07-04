@@ -11,10 +11,10 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SHARED_LIBRARIES := \
-    libcutils \
-    libdl \
-    libgps.utils \
-    liblog \
+	libcutils \
+	libdl \
+	libgps.utils \
+	liblog \
 	libutils
 
 LOCAL_SRC_FILES += \
@@ -22,7 +22,7 @@ LOCAL_SRC_FILES += \
 	LocationAPIClientBase.cpp
 
 LOCAL_CFLAGS += \
-	 -fno-short-enums
+	-fno-short-enums
 
 LOCAL_HEADER_LIBRARIES := \
 	libloc_pla_headers \

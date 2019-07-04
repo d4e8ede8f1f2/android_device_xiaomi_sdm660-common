@@ -21,7 +21,7 @@ EXTRA_VENDOR_LIBRARIES_32 := \
 	libsonivox
 
 define define-vndk-lib
-include $$(CLEAR_VARS)
+include $(CLEAR_VARS)
 LOCAL_MODULE := $1.vndk-ext-gen
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_PREBUILT_MODULE_FILE := $$(call intermediates-dir-for,SHARED_LIBRARIES,$1,,,$3,)/$1.so
@@ -31,7 +31,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_INSTALLED_MODULE_STEM := $1.so
 LOCAL_MODULE_SUFFIX := .so
 LOCAL_VENDOR_MODULE := true
-include $$(BUILD_PREBUILT)
+include $(BUILD_PREBUILT)
 endef
 
 $(foreach lib,$(EXTRA_VENDOR_LIBRARIES_32),\
