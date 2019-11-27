@@ -1,6 +1,4 @@
-
-LOCAL_PATH := $(call my-dir)
-ifeq ($(BOARD_VENDOR_PLATFORM), xiaomi-sdm660)
+LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
@@ -16,20 +14,13 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_USE_AAPT2 := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
-	android-support-v4 \
-	android-support-v13 \
-	android-support-v7-recyclerview \
-	android-support-v7-preference \
-	android-support-v7-appcompat \
-	android-support-v14-preference
+    androidx.preference_preference
 
 LOCAL_RESOURCE_DIR := \
-	$(LOCAL_PATH)/res \
-	$(TOP)/packages/resources/devicesettings/res
+    $(LOCAL_PATH)/res
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 include $(BUILD_PACKAGE)
 
-include $(call all-makefiles-under, $(LOCAL_PATH))
-endif
+include $(call all-makefiles-under,$(LOCAL_PATH))

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Whether to add AGPS parameter settings -->
-    <bool name="config_agps_enabled">true</bool>
-</resources>

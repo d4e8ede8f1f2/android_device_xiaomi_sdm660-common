@@ -1,4 +1,3 @@
-
 package org.ifaa.android.manager;
 
 import android.content.ComponentName;

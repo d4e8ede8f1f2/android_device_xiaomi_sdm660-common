@@ -1,5 +1,20 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-#define LOG_TAG "LightService_Xiaomi"
+#define LOG_TAG "android.hardware.light@2.0-service.xiaomi_sdm660"
 
 #include <log/log.h>
 
@@ -24,15 +39,15 @@
 /*
  * 15 duty percent steps.
  */
-#define RAMP_STEPS 17
+#define RAMP_STEPS 15
 /*
  * Each step will stay on for 150ms by default.
  */
-#define RAMP_STEP_DURATION 100
+#define RAMP_STEP_DURATION 150
 /*
  * Each value represents a duty percent (0 - 100) for the led pwm.
  */
-static int32_t BRIGHTNESS_RAMP[RAMP_STEPS] = {0, 8, 12, 24, 36, 52, 74, 90, 100, 90, 74, 52, 36, 24, 12, 8, 0};
+static int32_t BRIGHTNESS_RAMP[RAMP_STEPS] = {0, 12, 25, 37, 50, 72, 85, 100, 85, 72, 50, 37, 25, 12, 0};
 
 namespace {
 /*
@@ -179,8 +194,7 @@ namespace V2_0 {
 namespace implementation {
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
-    LightStateHandler handler;
-    bool handled = false;
+    LightStateHandler handler = nullptr;
 
     /* Lock global mutex until light state is updated. */
     std::lock_guard<std::mutex> lock(globalLock);
@@ -202,15 +216,12 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
     for (LightBackend& backend : backends) {
         if (handler == backend.handler && isLit(backend.state)) {
             handler(backend.state);
-            handled = true;
-            break;
+            return Status::SUCCESS;
         }
     }
 
     /* If no type has been lit up, then turn off the hardware. */
-    if (!handled) {
-        handler(state);
-    }
+    handler(state);
 
     return Status::SUCCESS;
 }

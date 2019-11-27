@@ -1,23 +1,35 @@
-# PixelExperience
-# Device configuration for Xiaomi Mi A2
-
-## Device specifications
+This repository contains device configuration for Xiaomi SDM660 devices
 
 Basic   | Spec Sheet
--------:|:-------------------------
-CPU     | 8x Qualcomm® Kryo™ 260 up to 2.2GHz
-CHIPSET | Qualcomm SDM660 Snapdragon 660
+-------:|:----------
+CPU     | Quad-core 1.84 GHz Qualcomm Kryo 260 LP
+CPU     | Quad-core 2.20 GHz Qualcomm Kryo 260 HP
+Chipset | Qualcomm Snapdragon 660, SDM660
 GPU     | Adreno 512
-Memory  | 3GB / 4GB / 6GB RAM (LPDDR4X)
-Shipped Android Version | 8.1.0
-Storage | 32/64/128GB eMMC 5.1 flash storage
-Battery | Non-removable Li-Po 3010 mAh
-Dimensions | 158.7 x 75.4 x 7.3 mm
-Display | 1080x2160 pixels, 5.99
-Rear Camera  | 12MP+20MP, AI Dual Camera
-Front Camera | 20 MP
+ROM     | 32/64/128GB
+RAM     | 3/4/6GB
+Android | 8.1.0
 
-![Device Picture](https://static-eu.insales.ru/images/products/1/6809/170998425/20180723211747.jpg)
+Note:
+Depends on: android_packages_resources_devicesettings from LineageOS
 
-### Kernel Source
-Check here: https://github.com/d4e8ede8f1f2/android_kernel_xiaomi_jasmine_sprout/tree/android-9.0
+Currently Supported Devices: wayne (MI 6X), jasmine_sprout (MI A2), platina (MI 8 Lite) and clover (MI PAD 4 /4 Plus)
+
+## Copyright
+
+```
+#
+# Copyright (C) 2018 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
